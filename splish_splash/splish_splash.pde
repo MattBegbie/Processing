@@ -14,7 +14,7 @@ void setup()
 int fc = 0;
 void draw()
 {
-  int scale = 2;
+  int scale = 3;
 
   background(0);
   noFill();
@@ -22,12 +22,13 @@ void draw()
   //circle(width/2, height/2, width/2);
   //drop(width/(2*scale), mouseX, mouseY, 10, scale, fc);
   //float time = millis(); //had to add time function out here so that all waves have the same time (causes splits)
-  drop(width/(2*scale), 0, 0-(height/2), 10, scale, fc);
-  drop(width/(2*scale), width, 0-(height/2), 10, scale, fc);
-  dropC(width/(2*scale), width, height*1.45, 10, scale, fc);
-  dropC(width/(2*scale), 0, height*1.45, 10, scale, fc);
+  //drop(width/(2*scale), 0, 0-(height/2), 10, scale, fc);
+  //drop(width/(2*scale), width, 0-(height/2), 10, scale, fc);
+  //dropC(width/(2*scale), width, height*1.45, 10, scale, fc);
+  //dropC(width/(2*scale), 0, height*1.45, 10, scale, fc);
+  drop(width/(2*scale), width/2, height/3, 5, scale, fc);
   noFill();
-  //stroke(4);
+  strokeWeight(2);
   //circle(mouseX, mouseY, 5);
   if (fc>=180)
   {
@@ -40,7 +41,7 @@ void draw()
 void drop(float r, float xo, float yo, float h, float scale, float time)
 {
   PVector P = new PVector(xo, yo);
-  int col;
+  //int col = 0;
   xo -= r*scale;
   yo -= r*scale;
   //stroke(255);
@@ -49,7 +50,7 @@ void drop(float r, float xo, float yo, float h, float scale, float time)
     for (float x = -r; x <= r; x = x + 2)
     {
       float dist = sqrt((x*x)+(y*y));
-      col = int(dist);
+      //col = int(dist);
       float z = tan(dist/5 - (time/10)) * h;
       //float z = tan(dist/10 - (second()/70)) * h;
 
@@ -60,7 +61,6 @@ void drop(float r, float xo, float yo, float h, float scale, float time)
       { //only render inside screen
         if (dist > h && dist < h*100)
         {
-
           stroke(abs(x*y)%360, abs(y%360), 360);
           //print(col + " ");
           point(P.x, P.y);
@@ -70,6 +70,8 @@ void drop(float r, float xo, float yo, float h, float scale, float time)
     }
   }
 }
+
+
 void dropC(float r, float xo, float yo, float h, float scale, float time)
 {
   PVector P = new PVector(xo, yo);
