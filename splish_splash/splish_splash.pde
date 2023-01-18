@@ -32,10 +32,10 @@ void draw()
   //circle(mouseX, mouseY, 5);
   if (fc>=180)
   {
-    exit();
+    //exit();
   }
   fc++;
-  saveFrame("tancoswave/###.png");
+  //saveFrame("tancoswave/###.png");
 }
 
 void drop(float r, float xo, float yo, float h, float scale, float time)
@@ -62,7 +62,7 @@ void drop(float r, float xo, float yo, float h, float scale, float time)
         if (dist > h && dist < h*100)
         {
           stroke(abs(x*y)%360, abs(y%360), 360);
-          //print(col + " ");
+          //square(P.x, P.y, 4);
           point(P.x, P.y);
         }
       }
@@ -98,7 +98,8 @@ void dropC(float r, float xo, float yo, float h, float scale, float time)
 
           stroke(abs(x*y)%360, abs(y)%360, abs(y%360));
           //print(col + " ");
-          point(P.x, P.y);
+          //square(P.x, P.y, 10);
+          //point(P.x, P.y);
         }
       }
       //circle(((r+x)*scale)+xo, ((r+y-z)*scale)+yo, 5);
